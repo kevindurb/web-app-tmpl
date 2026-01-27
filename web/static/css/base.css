@@ -1,0 +1,9 @@
+:root {
+  --font-main: 'Inter', system-ui, sans-serif;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+
+  --bg-primary: light-dark(#ffffff, #121212);
+  --text-primary: light-dark(#1a1a1a, #f0f0f0);
+  --brand-color: #3b82f6;
+}
