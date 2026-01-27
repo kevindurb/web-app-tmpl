@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+---
+version: '3'
+
+tasks:
+  default: task --list-all
+  build: go build -o ./dist/web ./cmd/web
+  dev: air
+  sqlc:generate: sqlc generate
+  sqlc:vet: sqlc vet
+  sqlfluff:lint: sqlfluff lint
+  sqlfluff:fix: sqlfluff fix
+  install:
+    - go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+    - go install github.com/air-verse/air@latest
+    - go install github.com/pressly/goose/v3/cmd/goose@latest
