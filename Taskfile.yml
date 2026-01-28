@@ -2,6 +2,11 @@
 ---
 version: '3'
 
+includes:
+  templates:
+    taskfile: .taskfiles/templates
+    aliases: [tmpl]
+
 tasks:
   default: task --list-all
   build: go build -o ./dist/web ./cmd/web

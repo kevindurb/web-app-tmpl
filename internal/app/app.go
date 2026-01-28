@@ -31,7 +31,7 @@ func New(pool *pgxpool.Pool) *App {
 
 	mux.Handle("GET /static/", http.StripPrefix("/static/", a.Static()))
 	mux.HandleFunc("GET /healthcheck", a.healthcheck)
-	mux.HandleFunc("GET /{$}", ghttp.Adapt(a.index))
+	mux.HandleFunc("GET /{$}", ghttp.Adapt(a.indexShow))
 
 	return &a
 }

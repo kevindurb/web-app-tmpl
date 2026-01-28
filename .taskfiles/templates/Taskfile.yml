@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+---
+version: '3'
+
+tasks:
+  default: task --list-all
+  handler:
+    requires:
+      vars: [NAME, ACTION]
+    vars:
+      CONTENT: |
+        package app
+
+        import (
+          "net/http"
+
+          "github.com/kevindurb/web-app-tmpl/internal/html"
+          g "maragu.dev/gomponents"
+          h "maragu.dev/gomponents/html"
+        )
+
+        func (a *App) {{.NAME | lower}}{{.ACTION | title}}(w http.ResponseWriter, r *http.Request) (g.Node, error) {
+          return html.Layout(
+            h.H1(g.Text("{{.NAME}} {{.ACTION}}")),
+          ), nil
+        }
+    cmd: 'echo {{.CONTENT | q}} > ./internal/app/{{.NAME | lower}}_{{.ACTION | lower}}.go'

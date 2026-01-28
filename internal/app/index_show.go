@@ -8,8 +8,8 @@ import (
 	h "maragu.dev/gomponents/html"
 )
 
-func (a *App) index(w http.ResponseWriter, r *http.Request) (g.Node, error) {
+func (a *App) indexShow(w http.ResponseWriter, r *http.Request) (g.Node, error) {
 	return html.Layout(
-		h.H1(g.Text("Hello World")),
+		h.H1(g.Text("index show")),
 	), nil
 }
